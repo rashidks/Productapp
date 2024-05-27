@@ -1,0 +1,29 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+        <form method="post" action="{% url 'addproducts' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="" class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" placeholder="title"><br>
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea class="form-control" name="description" rows="3"></textarea><br>
+                    <label for="" class="form-label">Price</label>
+                    <input type="number" class="form-control" name="price" placeholder="title"><br>
+              
+                <label for="">categories</label>
+                <select class="form-select" aria-label="Default select example"  name="categories">
+                    <option selected>Select category</option>
+                    {% for category in categories %}
+                    <option value="{{category.id}}">{{category.name}}</option>
+                    {% endfor %}
+                  </select><br>
+                
+                <label for="formFile" class="form-label">Image</label>
+                <input class="form-control" type="file" name="image" ><br>
+                <button type="submit" class="btn btn-primary" type="button">ADD PRODUCT</button>
+              </div>             
+        </form>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+{% block content %}
+
+<form method="post" action="{% url 'editproduct' product.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="">image</label>
+    <input type="file" name="image" ><br>
+    <label for="">title</label>
+    <input type="text" name="title" value="{{product.title}}"><br>
+    <label for="">description</label>
+    <input type="text" name="description"><br>
+    <label for="">price</label>
+    <input type="number" name="price"><br>
+    <label for="">category</label>
+    <select name="categories" >
+    {% for category in categories%}
+    <option value="{{category.id}}">{{category.name}}</option>
+    {% endfor %}
+    </select><br>
+
+    <button type="submit">edit</button>
+</form>
+   
+
+{% endblock %}

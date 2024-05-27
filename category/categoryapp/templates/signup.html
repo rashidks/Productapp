@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+{% block content %}
+<div >
+    <div class="home-div-one-one">
+    <form method="post" action="{% url 'signup' %}"  enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="" class="form-label user" >Username</label>
+        <input type="text" class="form-control" name="username" placeholder="username"><br>
+        <label for="" class=" user">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Password">
+        <label for="" class=" user">Confirm Password</label>
+        <input type="password" class="form-control" name="confirmpassword" placeholder="Password">
+        
+        <button type="submit" type="button" class="btn btn-success ">Sign Up</button>
+    </form>
+    
+     </div>
+
+</div>
+<div>
+{% if message %}
+    <p>{{message}}</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+{% block content %}
+<h1>{{product.title}}</h1>
+<h1>{{product.description}}</h1>
+<h1>{{product.price}}</h1>
+{% if user.is_superuser%}
+<a href="{% url 'editproduct' product.id %}"><button > edit</button><a>
+<form method="post" action="{% url 'deleteproduct' product.id %}"enctype="multipart/form-data">
+        {% csrf_token %}
+<button type="submit" > delete</button>
+{% endif %}
+</form>
+   
+
+{% endblock %}
+

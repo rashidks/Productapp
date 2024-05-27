@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+{% block content %}
+
+    <div class="home-div-one-one mb-3">
+    <form  method="post" action="{% url 'signin' %}"  enctype="multipart/form-data" >
+        {% csrf_token %}
+        
+        <label for="" class="form-label user" >Username</label>
+        <input type="text" class="form-control" name="username" placeholder="username"><br>
+        <label for="" class=" user">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Password">
+        <button type="submit"  type="button" class="btn btn-primary ">login</button>
+    </form>
+     </div>
+
+{% endblock %}
